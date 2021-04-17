@@ -1,28 +1,35 @@
 import React from 'react';
-import Search from 'Search.js';
-import './App.css';
+import Search from './Search';
+import Weather from './Weather';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+// import './App.css';
 
 class App extends React.Component {
-  render() {
-    return (
-      <>
-        <h2>Hello!</h2>
-      </>
-    )
+  constructor(props) {
+    super(props);
+    this.state = {
+      weather: '',
+    }
   }
+getWeather = (data) => {
+  this.setState({
+    weather: data,
+  })
+}
+render() {
+  console.log(this.state);
+  return (
+    <>
+    <Search getWeather = {this.getWeather} />
+    <Weather weatherResults = {this.state.weather} /> 
+    </>
+  )
+}
 }
 export default App;
 
 
 // in form submit
 
-this.getWeatherData;
-
-getWeatherData = async () => {
-  const weatherData = await axios.get('http://localhost:3002/weather') // String for  now of server city data
-  console.log('this works', weatherData);
-  this.setState({
-    weatherData: weatherData.data
-  })
-}
 

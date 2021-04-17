@@ -1,28 +1,36 @@
 import React from 'react';
+import axios from 'axios';
 
 
 class Search extends React.Component {
   constructor(props) {
     super(props);
+    this.textInput = React.createRef();
     this.state = {
-      searchData = React.createRef()
-    };
+      weatherData: '',
+    }
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault();
-    this.props.handleSearch(this.state.textInput.current.value);
+    const weatherData = await axios.get('http://localhost:3002/weather')
+    console.log('this works', weatherData);
+    
+    this.setState({
+      weatherData: weatherData.data
+    });
+    this.props.getWeather(weatherData.data)
   }
 
   render() {
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <Form.group>
-          <Form.Label></Form.Label>
-          <Form.Control></Form.Control>
-        </Form.group>
-        <Button type="submit" variant="primary"> Explore! </Button>
-      </Form>
-    );
+      <form onSubmit={this.handleSubmit}>
+        <input type="text" ref={this.textInput} />
+        <button type="submit">Explore!</button>
+      </form>
+    )
   }
 }
+
+
+export default Search;
