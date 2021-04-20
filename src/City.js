@@ -6,7 +6,7 @@ class City extends React.Component {
       <>
       <button onClick={this.props.handleSearch}>Explore!</button>
       <h2>{this.props.cityData.display_name}</h2>
-      <img src={``}
+      <img src={ `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_KEY}&center=${this.props.cityData.lat},${this.props.cityData.lon}&zoom=10`  } alt="city map" />
       </>
     )
   }

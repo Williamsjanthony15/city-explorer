@@ -2,6 +2,7 @@ import React from 'react';
 import Search from './Search';
 import Weather from './Weather';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import City from './City';
 
 // import './App.css';
 
