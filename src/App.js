@@ -1,16 +1,15 @@
 import React from 'react';
 import Search from './Search';
 import Weather from './Weather';
+import './css/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import City from './City';
-
-// import './App.css';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       weather: '',
+      city: '',
     }
   }
 getWeather = (data) => {
@@ -31,7 +30,5 @@ render() {
 }
 export default App;
 
-
-// in form submit
 
 
