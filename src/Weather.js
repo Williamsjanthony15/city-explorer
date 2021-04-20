@@ -1,17 +1,26 @@
-import { render } from '@testing-library/react';
+
 import React from 'react';
+import ListGroup from 'react-bootstrap/ListGroup'
+
 
 class Weather extends React.Component{
  render() {
-   let allListGroups = this.props.weatherData.map((day, index) => {
-     <listGroup.Item key={index}> {`${day.date}: ${day.description}`} </listGroup.Item>
-   })
+   let allListGroups;
+   if (this.props.weatherResults.length > 0) {
+   allListGroups = this.props.weatherResults.map((day, index) => (
+     <ListGroup.Item key={index}> {`${day.date}: ${day.description}`} </ListGroup.Item>
+   ))
+   return allListGroups;
+  }
+   else {
+     console.log('Didnt Work');
+  }
    return (
      <ListGroup>
        {allListGroups}
-     {/* <h2> {this.props.weatherData[0].data</h2>
-     <h2> {this.props.weatherData[0].description</h2> */}
     </ListGroup>
    );
  }
 }
+
+export default Weather;
