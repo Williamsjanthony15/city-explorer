@@ -20,6 +20,7 @@ getWeather = (data) => {
 }
 render() {
   console.log(this.state);
+  console.log('This is the updated state of Weather', this.state.weather);
   return (
     <>
     <Search getWeather = {this.getWeather} />
