@@ -59,7 +59,7 @@ class Search extends React.Component {
         </form>
         <Jumbotron>
           <h2>{this.state.cityName}</h2>
-          <h3>{this.state.lat}, {this.state.lon}</h3>
+          <h3>{this.state.lat}{this.state.lon}</h3>
           <img src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_KEY}&center=${this.state.lat},${this.state.lon}&zoom=10`} alt={this.state.cityName} />
         </Jumbotron>
       </>
