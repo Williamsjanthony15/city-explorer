@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import Search from './Search';
 import Weather from './Weather';
+import Error from './Error';
 import './css/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -19,16 +20,26 @@ class App extends React.Component {
   }
 
   getLatLong = async (city) => {
-    const locationURL = await axios.get(`https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_KEY}&q=${city}&format=json`);
-    console.log('look at me', locationURL);
-    this.setState({
-      city: city,
-      cityName: locationURL.data[0].display_name,
-      lat: locationURL.data[0].lat,
-      lon: locationURL.data[0].lon,
-
-    })
+    try {
+      const locationURL = await axios.get(`https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_KE}&q=${city}&format=json`);
+      console.log('look at me', locationURL);
+      this.setState({
+        city: city,
+        cityName: locationURL.data[0].display_name,
+        lat: locationURL.data[0].lat,
+        lon: locationURL.data[0].lon,
+  
+      })
+    } catch (error){
+      this.setState({
+        error: true,
+        errorResponse: error.response.data.error,
+        errorMessage: error.message
+      })
+       
+    }
   }
+
 
   getWeather = (data) => {
     this.setState({
@@ -46,6 +57,7 @@ class App extends React.Component {
           lat={this.state.lat} 
           lon={this.state.lon} 
         />
+        {this.state.error ? <Error errorMessage={this.state.errorMessage} /> : ''}
         <Weather weatherResults={this.state.weather} />
       </>
     )
