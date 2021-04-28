@@ -61,8 +61,7 @@ class App extends React.Component {
       const movieData = await axios.get(`http://localhost:3002/movies`, { params: { city: this.state.city}});
       console.log('Getting Movie Data', movieData);
       this.setState({
-        movies: movies.data,
-
+        movies: movieData.data
       })
     } catch (error) {
       this.setState({
