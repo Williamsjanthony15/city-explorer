@@ -17,11 +17,16 @@ link the two via REACT.js
 
 ## Architecture
 <!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+This app is to provide users with the ability to search a location and return, City coordinates, movies associated with that city and weather data as well. It is using a weather API, Location API, and Movie API. 
 
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+
+started with Location API 
+Moved to Weather for that Location
+Than added Movie association to the mix
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
@@ -29,12 +34,12 @@ link the two via REACT.js
 
 
 
-Name of feature: ________________________________
+Name of feature: City Explorer
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 24 hours
 
-Start time: _____
+Start time: 1700
 
-Finish time: _____
+Finish time: +3D 1900
 
-Actual time needed to complete: _____
+Actual time needed to complete: 3 days, 2 hours.
